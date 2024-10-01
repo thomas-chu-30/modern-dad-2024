@@ -48,7 +48,7 @@ const sendLineNotify = (token, payload) => {
             console.log("LINE Notify Response:", data);
         })
         .catch((error) => {
-            console.error("Error sending LINE Notify message:", error);
+            throw error;
         });
 };
 
