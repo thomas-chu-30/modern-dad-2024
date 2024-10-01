@@ -7,7 +7,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/", function (req, res, next) {
-    res.render("index", { title: `Express ${JSON.stringify(req.body)}` });
+    res.json({ title: `Express ${JSON.stringify(req.body)}` });
 });
 
 module.exports = router;
