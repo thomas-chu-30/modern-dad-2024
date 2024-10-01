@@ -57,7 +57,7 @@ router.post("/line-notify", async function (req, res, next) {
         await sendLineNotify(req.body.token, req.body.payload);
         res.json({ message: "Line Notify sent" });
     } catch (error) {
-        res.json({ error: error.message });
+        res.status(400).json({ error: error.message }); // 修改 status code 为 400
     }
 });
 
