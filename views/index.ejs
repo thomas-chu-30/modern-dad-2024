@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <!-- https://docs.google.com/forms/d/e/1FAIpQLSerFQsrY9A8zoKt8S3cxIaUSPAswilpn2SID4BAIL3RJIxNaA/viewform -->
+        <h1><%= title %></h1>
+        <section>
+            <div className="container">
+                <h2 className={styles.ContactTitle}>CONTACT</h2>
+                <div className={styles.ContactForm}>
+                <form className="form" target="_blank" rel="noreferrer noopenner" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSerFQsrY9A8zoKt8S3cxIaUSPAswilpn2SID4BAIL3RJIxNaA/formResponse" method="POST" role="form">
+                    <div className="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" className="form-control" name="entry.142383399" placeholder="Name" required></input>
+                    </div>                            
+                    <div className="form-group">
+                    <label for="email">信箱(非必填)</label>
+                    <input type="email" className="form-control" name="entry.832655157" placeholder="Email (Not Required)" ></input>
+                    </div>                              
+                    <div className="form-group">
+                    <label for="message">留言</label>
+                    <textarea name="entry.1658842169" placeholder="Message" required></textarea>
+                    </div>
+                    <input type="submit" value="送出" />
+                </form>
+                </div>
+            </div>
+        </section>
+    </body>
 </html>
