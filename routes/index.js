@@ -3,7 +3,8 @@ var router = express.Router();
 var cors = require("cors"); // 引入 cors
 
 var corsOptions = {
-    origin: "http://localhost:3000",
+    origin: process.env.ALLOWED_ORIGIN,
+    methods: ["GET", "POST"],
     optionsSuccessStatus: 200, // 一些旧版浏览器 (如IE11) 可能会对204状态码有问题
 };
 
