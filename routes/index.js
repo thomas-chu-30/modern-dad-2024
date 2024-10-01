@@ -52,9 +52,9 @@ const sendLineNotify = (token, payload) => {
         });
 };
 
-router.post("/line-notify", function (req, res, next) {
+router.post("/line-notify", async function (req, res, next) {
     try {
-        sendLineNotify(req.body.token, req.body.payload);
+        await sendLineNotify(req.body.token, req.body.payload);
         res.json({ message: "Line Notify sent" });
     } catch (error) {
         res.json({ error: error.message });
