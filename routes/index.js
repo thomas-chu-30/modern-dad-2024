@@ -39,7 +39,7 @@ router.get("/", function (req, res, next) {
     console.log("MerchantTradeDate", MerchantTradeDate);
 
     let base_param = {
-        MerchantTradeNo: null, //請帶20碼uid, ex: f0a0d7e9fae1bb72bc93
+        MerchantTradeNo: MERCHANTID, //請帶20碼uid, ex: f0a0d7e9fae1bb72bc93
         MerchantTradeDate,
         TotalAmount: "100",
         TradeDesc: "測試交易描述",
@@ -47,16 +47,21 @@ router.get("/", function (req, res, next) {
         ReturnURL: `${HOST}/return`,
         ClientBackURL: `${HOST}/clientReturn`,
     };
+
     const create = new ecpay_payment(options);
-    const result = create.create(base_param);
-    console.log("result", result);
+    const html = create.payment_client.aio_check_out_all(base_param);
+
     res.render("index", {
-        title: `Express ${MerchantTradeDate}`,
-        description: base_param,
+        title: "Express",
+        html,
     });
 });
 
-router.get("/test", function (req, res) {
+router.get("/return", function (req, res) {
+    return res.send({ status: "ok" });
+});
+
+router.get("/clientReturn", function (req, res) {
     return res.send({ status: "ok" });
 });
 
